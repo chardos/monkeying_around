@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
       <th>Age</th>
       <th colspan="3"></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @monkeys.each do |monkey| %>
       <tr>
+        <td><%= monkey.id %></td>
         <td><%= monkey.name %></td>
         <td><%= monkey.age %></td>
         <td><%= link_to 'Show', monkey %></td>
