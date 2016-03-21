@@ -18,9 +18,19 @@ class Api::MonkeysController <  ApplicationController
         monkey: monkey
       }.to_json
     else
-      render json: {
-        status: 500,
+      render status: 500, json: {
         errors: monkey.errors
+      }.to_json
+    end
+  end
+
+  def update
+    monkey = Monkey.find(params[:id])
+    if monkey.update(monkey_params)
+      render json: {
+        status: 200,
+        message: "Successfully updated a monkey",
+        monkey: monkey
       }.to_json
     end
   end
@@ -43,8 +53,11 @@ class Api::MonkeysController <  ApplicationController
 end
 
 
+#ADD NEW CURL COMMAND
+#curl -i -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"name": "George"}' http://localhost:3000/api/monkeys
+
 #DELETE CURL COMMAND
 #curl -i -H "Accept: application/json" -X DELETE http://localhost:3000/api/monkeys/9.json
 
-#ADD NEW CURL COMMAND
-#curl -i -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"name": "George"}' http://localhost:3000/api/monkeys
+#EDIT CURL COMMAND
+#curl -i -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"name": "Steve"}' http://localhost:3000/api/monkeys/13.json
