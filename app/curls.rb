@@ -7,4 +7,11 @@
 #EDIT CURL COMMAND
 #curl -i -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"name": "Steve"}' http://localhost:3000/api/monkeys/13.json
 
-#curl -i -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"user":{"email": "sd@boa.com","password":"dogman123","password_confirmation": "dogman123"}}' http://localhost:3000/api/users
+# ADD NEW USER
+#curl -i -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"user":{"email": "test@guy.com","password":"testguy1","password_confirmation": "testguy1"}}' http://localhost:3000/api/users
+
+# SIGN IN
+#curl -i -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"email": "test@guy.com","password":"testguy1"}' http://localhost:3000/api/sessions
+
+# SIGN OUT
+#curl -X DELETE http://localhost:3000/api/sessions/11
