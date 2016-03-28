@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :monkeys
     resources :users, only: [:index, :show, :create]
     resources :sessions, only: [:create, :destroy]
+    resources :properties
   end
 
   resources :monkeys
