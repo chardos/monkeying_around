@@ -1,7 +1,7 @@
 class Api::PropertiesController <  ApplicationController
   skip_before_filter :verify_authenticity_token
   def index
-    render json: Property.all
+    render json: Property.all.where(user_id: current_user.id)
   end
 
   def show
