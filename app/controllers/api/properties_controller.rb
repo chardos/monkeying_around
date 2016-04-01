@@ -1,5 +1,7 @@
 class Api::PropertiesController <  ApplicationController
   skip_before_filter :verify_authenticity_token
+
+
   def index
     render json: Property.all.where(user_id: current_user.id)
   end
@@ -10,7 +12,9 @@ class Api::PropertiesController <  ApplicationController
   end
 
   def create
-    property = Property.new(property_params)
+    new_params = property_params
+    new_params[:user_id] = current_user.id
+    property = Property.new(new_params)
     if property.save
       render json: {
         status: 200,
@@ -48,7 +52,7 @@ class Api::PropertiesController <  ApplicationController
   private
 
   def property_params
-    params.require('property').permit(['address', 'price','user_id'])
+    @property_params ||= params.require('property').permit(['address', 'price','user_id'])
   end
 
 end
