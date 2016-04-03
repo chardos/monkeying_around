@@ -16,6 +16,7 @@ use Rack::Cors do
         :expose  => ['Some-Custom-Response-Header'],
         :max_age => 600
         # headers to expose
+    resource '*', :headers => :any, :methods => [:get, :post, :options, :delete, :put, :patch], credentials: true
   end
 
   allow do
