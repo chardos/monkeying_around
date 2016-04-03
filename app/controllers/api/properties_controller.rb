@@ -33,7 +33,7 @@ class Api::PropertiesController <  ApplicationController
     if property.update(property_params)
       render json: {
         status: 200,
-        message: "Successfully updated a monkey",
+        message: "Successfully updated a property",
         property: property
       }.to_json
     end
